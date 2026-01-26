@@ -1,0 +1,10 @@
+{
+  "currentUser": {
+    "id": 2,
+    "email": "usuario1@gmail.com",
+    "name": "Usuário 1",
+    "status": "active",
+    "role": "user",
+    "createdAt": "10/01/2026"
+  }
+}
