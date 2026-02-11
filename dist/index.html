@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JJ Mídia Indoor</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#06b6d4">
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/5806/5806361.png">
+  <script type="module" crossorigin src="/assets/index-DPXzvz5D.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-3oQfkkNo.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+</body>
+
+</html>

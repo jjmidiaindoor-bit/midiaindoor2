@@ -1,0 +1,24 @@
+{
+    "name": "JJ Mídia Indoor",
+    "short_name": "JJ Mídia",
+    "description": "Sistema de Gestão de Mídia Indoor",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#020617",
+    "theme_color": "#06b6d4",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "https://cdn-icons-png.flaticon.com/512/5806/5806361.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "https://cdn-icons-png.flaticon.com/512/5806/5806361.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

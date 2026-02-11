@@ -1394,10 +1394,9 @@ export default function VideSystem() {
                                                                         </button>
                                                                         <button
                                                                             onClick={() => {
-                                                                                // Placeholder for APK download - usually point to a releases page or a static file
-                                                                                // For now, alerting the user about the universal nature
+                                                                                // Point to the correct new repository under the new account
                                                                                 alert('Iniciando download do Instalador APK Universal...\n(Certifique-se de configurar o código ' + tv.code + ' após instalar)');
-                                                                                window.open('https://github.com/' + (currentUser.name.toLowerCase().replace(' ', '-')) + '/jj-midia-tv-app/releases/latest/download/jj-midia-universal.apk', '_blank');
+                                                                                window.open('https://github.com/jjmidiaindoor-bit/jj-midia-tv-app/releases/latest/download/jj-midia-universal.apk', '_blank');
                                                                             }}
                                                                             className="w-full bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-[10px] font-bold py-1.5 rounded border border-cyan-500/30 flex items-center justify-center gap-2 transition"
                                                                         >
