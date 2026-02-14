@@ -63,6 +63,7 @@ export default function VideSystem() {
     const [playingItems, setPlayingItems] = useState([]);
     const [opacity, setOpacity] = useState(1);
     const [rotation, setRotation] = useState(0); // 0, 90, 180, 270
+    const [verticalRotation, setVerticalRotation] = useStoredState('verticalRotation', 90); // 90 (left) or 270 (right)
 
     // Load Medias from DB on Mount
     React.useEffect(() => {
@@ -174,6 +175,13 @@ export default function VideSystem() {
             setCurrentMediaIndex(0);
             setIsPlaying(true);
             setOpacity(1);
+
+            // Apply rotation based on orientation
+            if (orientation === 'vertical') {
+                setRotation(verticalRotation);
+            } else {
+                setRotation(0);
+            }
         } else {
             alert(`Nenhuma playlist ${orientation} encontrada (verifique se há mídias ou se o código da TV está correto).`);
         }
@@ -1552,10 +1560,45 @@ export default function VideSystem() {
                                 <h3 className="text-white font-bold text-lg mb-8">Modo Retrato</h3>
 
                                 <div className="aspect-video bg-slate-900/80 rounded-xl mb-8 flex flex-col items-center justify-center border border-slate-700/50 border-dashed relative group">
-                                    <div className="rotate-90">
+                                    <div style={{ transform: `rotate(${verticalRotation}deg)`, transition: 'transform 0.3s ease-in-out' }}>
                                         <Monitor className="w-14 h-14 text-cyan-500 mb-0 transition-transform group-hover:scale-110 duration-300" />
                                     </div>
                                     <p className="text-[10px] uppercase font-black text-slate-500 tracking-[0.2em] mt-4">Tela Vertical (9:16)</p>
+                                </div>
+
+                                {/* Rotation Selector */}
+                                <div className="mb-6">
+                                    <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Orientação da Rotação</label>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <button
+                                            onClick={() => setVerticalRotation(90)}
+                                            className={`py-3 px-4 rounded-xl border transition ${verticalRotation === 90
+                                                    ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400'
+                                                    : 'bg-slate-700 border-slate-600 text-slate-400'
+                                                }`}
+                                        >
+                                            <div className="flex flex-col items-center gap-2">
+                                                <div style={{ transform: 'rotate(90deg)' }}>
+                                                    <Monitor className="w-6 h-6" />
+                                                </div>
+                                                <span className="text-xs font-semibold">Lado Esquerdo</span>
+                                            </div>
+                                        </button>
+                                        <button
+                                            onClick={() => setVerticalRotation(270)}
+                                            className={`py-3 px-4 rounded-xl border transition ${verticalRotation === 270
+                                                    ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400'
+                                                    : 'bg-slate-700 border-slate-600 text-slate-400'
+                                                }`}
+                                        >
+                                            <div className="flex flex-col items-center gap-2">
+                                                <div style={{ transform: 'rotate(270deg)' }}>
+                                                    <Monitor className="w-6 h-6" />
+                                                </div>
+                                                <span className="text-xs font-semibold">Lado Direito</span>
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <div className="space-y-6">
